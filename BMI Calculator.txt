@@ -1,0 +1,57 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<form align="center" style='background-color:yellow'>
+			<br/><br/>
+			<table>
+				<tr><img src="BMI-Header-1.jpg" height='30%' width='100%'/></tr>
+				<tr>Height(cm)	:<input type="Text" id="he" value="Height"/></tr><br><br>
+				<tr>Weight(Kg)	:<input type="Text" id="we" value="Weight"/></tr><br><br>
+				<tr><input type="button" onclick="bmi_cal()" value="Calculate BMI Value"/></tr>
+				<br><br>
+				<tr><div id="Content">&nbsp;</div></tr>
+				<tr><img src="8307d5eae7fe58a0500036fff71f2477.jpg" height='50%'/></tr>
+			</table>
+		</form>
+		
+	<script type="text/javaScript">
+			function bmi_cal(){
+				
+				var height=document.getElementById("he").value;
+				document.getElementById("Content").innerHTML=height;
+				var weight=document.getElementById("we").value;
+				document.getElementById("Content").innerHTML=weight;
+				var h=height/100;
+				var bmi_val=weight/h*h;
+				var dipy=("<h4 style='color:purple' align=center-left>"
+						+"Height(m)		 :"+h+"<br/>"
+						+"Weight(Kg)	 :"+weight+"<br/>"
+						+"BMI value	     :"+bmi_val+"</h4>");
+						
+				var text=" You are ";
+				var level="";
+				if (bmi_val>=30){
+					level=("<h4 style='color:red'>"+text+"Obesity !!!</h4>");
+				}
+				else if(bmi_val>=25){
+					level=("<h4 style='color:orange'>"+text+"Over Weight !!!</h4>");
+					
+				}else if(bmi_val>=18.5){
+					level=("<h4 style='color:green'>"+text+"Normal Weight !!!</h4>");
+
+				}else if(bmi_val<18.5){
+					level=("<h4 style='color:blue'>"+text+"Under Weight !!!</h4>");
+					
+					
+				}else{
+					level="Error Input !!!";
+				}
+				
+				document.getElementById("Content").innerHTML=dipy+""+level;
+				
+			}
+		</script>
+		
+	</body>
+</html>
